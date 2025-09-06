@@ -1,3 +1,6 @@
+/* Import playful fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@400;700&display=swap');
+
 /* Reset some defaults */
 * {
   margin: 0;
@@ -6,72 +9,85 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  background-color: #fff8f7;   /* soft cream background */
+  color: #2e2e2e;             /* soft black for text */
   text-align: center;
   padding: 20px;
 }
 
 /* Header */
 header {
-  background: #222;
+  background: #ff6f91;         /* strawberry pink */
   color: white;
-  padding: 20px 0;
-  margin-bottom: 30px;
+  padding: 25px 0;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
 }
 
 /* Main content spacing */
 main {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 40px; /* space between items */
+}
+
+/* Each artwork block */
+main section {
+  background: #fff; 
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(231, 84, 128, 0.2); 
+  transition: transform 0.2s ease;
+}
+
+main section:hover {
+  transform: translateY(-5px); /* little lift effect */
 }
 
 /* Image styling */
-main img {
-  width: 300px;        /* fixed width */
-  height: 200px;       /* fixed height */
-  object-fit: cover;   /* keeps them neat, crops edges if needed */
-  display: block;
-  margin: 20px auto;   /* centers images */
-  border-radius: 10px; /* optional rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Video styling */
+main img, 
 main video {
-  width: 400px;
-  max-width: 90%;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
   display: block;
-  margin: 20px auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin: 0 auto 15px auto;
+  border-radius: 12px;
+  border: 3px solid #ffb6c1;  /* soft blush border */
 }
 
 /* Headings under images */
 main h1 {
-  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
   margin: 10px 0;
-  color: #444;
+  color: #e75480;   /* raspberry pink */
+  font-weight: 600;
 }
 
 /* Paragraphs */
 main p {
-  font-size: 1rem;
-  margin-bottom: 40px;
-  padding: 0 20px;
-  color: #555;
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0 auto;
 }
 
 /* Footer */
 footer {
-  background: #222;
-  color: white;
-  padding: 15px;
-  margin-top: 40px;
+  background: #ffb6c1;   /* blush pink */
+  color: #2e2e2e;       /* soft black */
+  padding: 18px;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
