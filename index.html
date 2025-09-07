@@ -74,10 +74,10 @@
   </main>
 
   <!-- Lightbox modal -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <button class="lightbox-nav prev" id="lightboxPrev">&#10094;</button>
-    <button class="lightbox-nav next" id="lightboxNext">&#10095;</button>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close (Esc)">&times;</button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous (Left Arrow)">&#10094;</button>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next (Right Arrow)">&#10095;</button>
     <img id="lightboxImg" alt="" style="display:none;">
     <video id="lightboxVideo" controls style="display:none;"></video>
   </div>
@@ -86,6 +86,118 @@
     <p>©2025 Sonia Robles</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Inline JS for double-click/tap lightbox + keyboard nav -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightboxImg");
+      const lbVideo = document.getElementById("lightboxVideo");
+      const btnClose = document.getElementById("lightboxClose");
+      const btnPrev = document.getElementById("lightboxPrev");
+      const btnNext = document.getElementById("lightboxNext");
+
+      const triggers = Array.from(
+        document.querySelectorAll("img.lightbox-trigger, video.lightbox-trigger")
+      );
+
+      const items = triggers.map((el) => {
+        if (el.tagName === "IMG") {
+          return { type: "img", src: el.currentSrc || el.src };
+        }
+        const source = el.querySelector("source");
+        return { type: "video", src: source?.src || el.currentSrc || el.src };
+      });
+
+      // Make triggers focusable for keyboard users
+      triggers.forEach((el) => el.setAttribute("tabindex", "0"));
+
+      let current = 0;
+
+      function render(index) {
+        const item = items[index];
+        if (!item) return;
+
+        if (item.type === "img") {
+          lbVideo.pause();
+          lbVideo.removeAttribute("src");
+          lbVideo.style.display = "none";
+
+          lbImg.src = item.src;
+          lbImg.style.display = "block";
+        } else {
+          lbImg.removeAttribute("src");
+          lbImg.style.display = "none";
+
+          lbVideo.src = item.src;
+          lbVideo.style.display = "block";
+          lbVideo.load();
+        }
+      }
+
+      function open(index) {
+        current = index;
+        render(current);
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+      }
+
+      function close() {
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        lbImg.removeAttribute("src");
+        lbVideo.pause();
+        lbVideo.removeAttribute("src");
+      }
+
+      function next(delta = 1) {
+        current = (current + delta + items.length) % items.length;
+        render(current);
+      }
+
+      // Double-click (desktop) and double-tap (mobile)
+      const DOUBLE_TAP_MS = 300;
+      const lastTapByEl = new WeakMap();
+
+      triggers.forEach((el, idx) => {
+        el.addEventListener("dblclick", () => open(idx));
+
+        // Keyboard: Enter/Space opens
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            open(idx);
+          }
+        });
+
+        // Mobile double-tap
+        el.addEventListener("pointerup", () => {
+          const now = Date.now();
+          const last = lastTapByEl.get(el) || 0;
+          if (now - last < DOUBLE_TAP_MS) {
+            open(idx);
+          }
+          lastTapByEl.set(el, now);
+        });
+      });
+
+      // Close interactions
+      btnClose?.addEventListener("click", close);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) close(); // click backdrop to close
+      });
+
+      // Nav buttons
+      btnPrev?.addEventListener("click", () => next(-1));
+      btnNext?.addEventListener("click", () => next(1));
+
+      // Keyboard in lightbox
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowRight") next(1);
+        if (e.key === "ArrowLeft") next(-1);
+      });
+    });
+  </script>
 </body>
 </html>
