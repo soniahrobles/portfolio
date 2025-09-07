@@ -28,7 +28,7 @@ body {
 
 /* Header */
 header {
-  background: #e75480;  /* raspberry pink */
+  background: #b86a82;  /* raspberry pink */
   color: white;
   padding: 25px 0;
   margin-bottom: 40px;
@@ -68,7 +68,7 @@ header h1 {
 .about-text h2 {
   font-family: 'Amoria', serif;   /* same as card titles */
   font-size: 1.8rem;
-  color: #e75480; /* raspberry pink */
+  color: #b86a82; /* raspberry pink */
   margin-bottom: 15px;
   text-align: left;
 }
