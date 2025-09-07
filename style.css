@@ -17,32 +17,37 @@
 /* Optional clean sans for fallback UI text */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Color tokens (RGB only) */
+:root{
+  --bg: rgb(255, 247, 248);        /* soft cream-pink */
+  --ink: rgb(43, 43, 43);          /* soft black */
+  --pink-700: rgb(184, 106, 130);  /* muted berry */
+  --pink-400: rgb(231, 188, 200);  /* blush */
+  --pink-200: rgb(244, 216, 223);  /* pale blush */
 }
 
+/* Reset */
+*{ margin:0; padding:0; box-sizing:border-box; }
+
 /* Base */
-body {
+body{
   font-family: 'Poppins', system-ui, sans-serif;
   line-height: 1.7;
-  background: rgb(255, 247, 248);   /* soft cream-pink */
-  color: rgb(43, 43, 43);          /* soft black */
+  background: var(--bg);
+  color: var(--ink);
   text-align: center;
   padding: 20px;
 }
 
 /* Header */
-header {
-  background: rgb(184, 106, 130);  /* muted berry */
-  color: rgb(255, 247, 248);       /* background */
+header{
+  background: var(--pink-700);
+  color: var(--bg);
   padding: 26px 0;
   margin-bottom: 40px;
-  box-shadow: 0 4px 10px rgba(43, 43, 43, .08);
+  box-shadow: 0 4px 10px rgba(43, 43, 43, .08); /* ink with opacity */
 }
-header h1 {
+header h1{
   font-family: "Amoria", serif;
   font-size: 2.6rem;
   letter-spacing: .5px;
@@ -50,7 +55,7 @@ header h1 {
 }
 
 /* Grid: two cards per row */
-main {
+main{
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
@@ -60,61 +65,61 @@ main {
 }
 
 /* Card */
-main section {
-  background: rgb(255, 247, 248);
+main section{
+  background: var(--bg);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 8px 16px rgba(184, 106, 130, .18);
-  border: 2px solid rgb(244, 216, 223);
+  box-shadow: 0 8px 16px rgba(184, 106, 130, .18); /* pink-700 with opacity */
+  border: 2px solid var(--pink-200);
   transition: transform .18s ease, box-shadow .18s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-main section:hover {
+main section:hover{
   transform: translateY(-4px);
-  box-shadow: 0 12px 22px rgba(184, 106, 130, .22);
+  box-shadow: 0 12px 22px rgba(184, 106, 130, .22); /* pink-700 with opacity */
 }
 
 /* File (image/video) */
 main img,
-main video {
+main video{
   width: 100%;
-  height: 230px;
+  height: 230px;            /* unchanged */
   object-fit: cover;
   border-radius: 12px;
-  border: 3px solid rgb(231, 188, 200);
+  border: 3px solid var(--pink-400);
   margin-bottom: 14px;
   cursor: pointer;
 }
 
 /* Title */
-main h1 {
+main h1{
   font-family: "Amoria", serif;
-  font-size: 1.4rem;
-  color: rgb(184, 106, 130);
+  font-size: 1.4rem;        /* unchanged */
+  color: var(--pink-700);
   font-weight: 400;
   margin-bottom: 8px;
 }
 
 /* Paragraph */
-main p {
+main p{
   font-family: "AppleGaramondLight", serif;
-  font-size: 0.85rem;
+  font-size: 0.85rem;       /* unchanged */
   line-height: 1.5;
-  color: rgb(43, 43, 43);
+  color: var(--ink);
   margin: 0 auto;
   max-width: 85%;
 }
 
 /* Footer */
-footer {
-  background: rgb(231, 188, 200);
-  color: rgb(43, 43, 43);
-  padding: 16px;
-  margin-top: 50px;
-  font-size: .9rem;
+footer{
+  background: var(--pink-400);
+  color: var(--ink);
+  padding: 16px;            /* unchanged */
+  margin-top: 50px;         /* unchanged */
+  font-size: .9rem;         /* unchanged */
 }
 
 /* Lightbox overlay */
@@ -122,7 +127,7 @@ footer {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(43, 43, 43, 0.9);
+  background: rgba(43, 43, 43, 0.9); /* ink with opacity */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,7 +147,7 @@ footer {
   max-width: 90%;
   max-height: 85%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(231, 188, 200, 0.3);
+  box-shadow: 0 0 20px rgba(231, 188, 200, 0.3); /* pink-400 with opacity */
 }
 
 /* Close button */
@@ -151,7 +156,7 @@ footer {
   top: 20px;
   right: 30px;
   font-size: 2rem;
-  color: rgb(255, 247, 248);
+  color: var(--bg);
   cursor: pointer;
   font-family: sans-serif;
   background: none;
@@ -164,58 +169,17 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   font-size: 2.5rem;
-  color: rgb(255, 247, 248);
+  color: var(--bg);
   cursor: pointer;
   background: none;
   border: none;
   user-select: none;
 }
 .lightbox-nav.prev { left: 20px; }
-.lightbox-nav.next { right: 20px; }
-
-/* ABOUT ME — same look as cards, but larger image */
-.about {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr; /* photo | text */
-  gap: 24px;
-  align-items: center;
-
-  background: rgb(255, 247, 248);
-  border: 2px solid rgb(244, 216, 223);
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(184, 106, 130, .18);
-}
-
-.about img {
-  width: 100%;
-  height: 440px; /* larger fixed height */
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid rgb(231, 188, 200);
-}
-
-.about h1 {
-  font-family: "Amoria", serif;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin: 0 0 10px 0;
-  color: rgb(184, 106, 130);
-}
-
-.about p {
-  font-family: "AppleGaramondLight", serif;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: rgb(43, 43, 43);
-  max-width: 95%;
-}
+lightbox-nav.next { right: 20px; }
 
 /* Responsive */
-@media (max-width: 760px) {
-  main { grid-template-columns: 1fr; gap: 28px; }
-  header h1 { font-size: 2.1rem; }
-  .about { grid-template-columns: 1fr; }
-  .about img { height: 440px; }
+@media (max-width: 760px){
+  main{ grid-template-columns: 1fr; gap: 28px; }
+  header h1{ font-size: 2.1rem; }
 }
