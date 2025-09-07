@@ -16,7 +16,7 @@
 
 .about-image img {
   width: 100%;
-  height: 220px;       /* match card media */
+  height: 325px;       
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
@@ -32,7 +32,7 @@
 
 .about-text p {
   font-family: 'AppleGaramond-Light', serif; /* same as card paragraphs */
-  font-size: 0.95rem;
+  font-size: 0.90rem;
   line-height: 1.7;
   color: #444;
   margin-bottom: 15px;
