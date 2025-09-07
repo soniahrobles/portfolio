@@ -175,81 +175,12 @@ footer{
   border: none;
   user-select: none;
 }
-.lightbox-nav.prev { left: 20px; }
-.lightbox-nav.next { right: 20px; }
+lightbox-nav.prev { left: 20px; }
+lightbox-nav.next { right: 20px; }
 
 /* Responsive */
 @media (max-width: 760px){
   main{ grid-template-columns: 1fr; gap: 28px; }
   header h1{ font-size: 2.1rem; }
   main img, main video { height: 250px; }
-}
-
-/* --------- GLOBAL OVERRIDES --------- */
-
-/* Sonia image always 440px wide */
-img[src$="sonia.jpg"]{
-  width: 440px !important;
-  height: auto !important;
-  display: block;
-  margin-inline: auto;
-  border-radius: 12px;
-  border: 3px solid var(--pink-400);
-}
-
-/* =========================
-   ABOUT SECTION — FIXES
-   ========================= */
-
-#about{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start !important;
-  text-align: left !important;
-  border-color: var(--pink-200);
-  box-shadow: 0 6px 14px rgba(200,130,152,.14);
-}
-
-/* Typography */
-#about h1, #about h2, #about h3{
-  font-family: "Amoria", serif;
-  color: var(--pink-700);
-  font-weight: 400;
-  letter-spacing: .3px;
-  margin-bottom: 10px;
-}
-#about p, #about li, #about a{
-  font-family: "AppleGaramondLight", serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #444;
-}
-
-#about img[src$="sonia.jpg"]{
-  width: 440px !important;
-  height: auto !important;
-  margin: 0 18px 12px 0;
-  flex: 0 0 auto;
-}
-
-/* Text block */
-#about .about-text{
-  flex: 1 1 320px;
-  max-width: 65ch;
-}
-
-/* Heading sizes */
-#about h1{ font-size: 1.6rem; }
-#about h2{ font-size: 1.25rem; }
-#about h3{ font-size: 1.1rem; }
-
-/* Mobile stacking */
-@media (max-width: 760px){
-  #about{ flex-direction: column; text-align: center !important; }
-  #about img[src$="sonia.jpg"]{
-    width: 280px !important;
-    margin: 0 auto 12px auto;
-  }
-  #about .about-text{ margin: 0 auto; }
 }
