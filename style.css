@@ -1,8 +1,5 @@
-/* Import fonts */
 /* Load Amoria for titles */
 @font-face {
-  font-family: 'Amoria';
-  src: url('AMORIA.otf') format('opentype');
   font-family: "Amoria";
   src: url("AMORIA.otf") format("opentype");
   font-weight: normal;
@@ -11,75 +8,45 @@
 
 /* Load Apple Garamond Light for paragraphs */
 @font-face {
-  font-family: 'AppleGaramond-Light';
-  src: url('AppleGaramond-Light.ttf') format('truetype');
   font-family: "AppleGaramondLight";
   src: url("AppleGaramond-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 /* Optional clean sans for fallback UI text */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
-/* Color tokens */
+/* Color tokens — muted pinks */
 :root{
-  --bg: #fff7f8;       /* soft cream-pink */
-  --ink: #2b2b2b;      /* soft black */
-  --pink-700: #b86a82; /* muted berry */
-  --pink-400: #e7bcc8; /* blush */
-  --pink-200: #f4d8df; /* pale blush */
+  --bg: #fff7f8;        /* soft cream-pink */
+  --ink: #2b2b2b;       /* soft black */
+  --pink-700:#b86a82;   /* muted berry */
+  --pink-400:#e7bcc8;   /* blush */
+  --pink-200:#f4d8df;   /* pale blush */
 }
 
-/* Base styles */
-body {
-  font-family: 'AppleGaramond-Light', serif;
 /* Reset */
 *{ margin:0; padding:0; box-sizing:border-box; }
 
 /* Base */
 body{
   font-family: 'Poppins', system-ui, sans-serif;
-line-height: 1.7;
-  background-color: #fff8f7; /* soft neutral pink */
-  color: #2e2e2e;
+  line-height: 1.7;
   background: var(--bg);
   color: var(--ink);
-text-align: center;
-padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 
 /* Header */
-header {
-  background: #ff6f91;  /* strawberry pink */
-  color: white;
-  padding: 25px 0;
 header{
   background: var(--pink-700);
-  color: var(--bg);
+  color: #fff;
   padding: 26px 0;
-margin-bottom: 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
 }
-
-header h1 {
-  font-family: 'Amoria', serif;
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(43,43,43,.08); /* ink with opacity */
-}
-
-/* About Section */
-.about {
-  background-color: #fff; /* clean block for separation */
-  padding: 60px 20px;
-  display: flex;
-  justify-content: center;
 header h1{
   font-family: "Amoria", serif;
   font-size: 2.6rem;
@@ -87,65 +54,22 @@ header h1{
   font-weight: 400;
 }
 
-.about-container {
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: 1fr 2fr; /* portrait left, text right */
-  gap: 40px;
-  align-items: center;
-}
-
-.about-image img {
-  width: 100%;
-  height: 440px;       /* double the card media height */
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.about-text h2 {
-  font-family: 'Amoria', serif;   /* same as card titles */
-  font-size: 2rem;
-  color: #e75480; /* raspberry pink */
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.about-text p {
-  font-family: 'AppleGaramond-Light', serif; /* same as card paragraphs */
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-/* Main Grid (Projects) */
-main {
 /* Grid: two cards per row */
 main{
-max-width: 1100px;
-margin: 0 auto;
-display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 per row */
-  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 38px;
   padding: 4px;
 }
 
-/* Each card */
-main section {
-  background: #fff;
-  border-radius: 12px;
 /* Card */
 main section{
-  background: var(--bg);
+  background: #fff;
   border-radius: 14px;
-padding: 20px;
-  box-shadow: 0 6px 12px rgba(231, 84, 128, 0.2);
-  transition: transform 0.2s ease;
-  box-shadow: 0 8px 16px rgba(184,106,130,.18); /* pink-700 with opacity */
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(200,130,152,.18);
   border: 2px solid var(--pink-200);
   transition: transform .18s ease, box-shadow .18s ease;
   display: flex;
@@ -153,65 +77,42 @@ padding: 20px;
   align-items: center;
   text-align: center;
 }
-
-main section:hover {
-  transform: translateY(-5px);
 main section:hover{
   transform: translateY(-4px);
-  box-shadow: 0 12px 22px rgba(184,106,130,.22); /* pink-700 with opacity */
+  box-shadow: 0 12px 22px rgba(184,106,130,.22);
 }
 
-/* Media inside cards */
 /* File (image/video) */
 main img,
-main video {
 main video{
-width: 100%;
-  aspect-ratio: 1 / 1;   /* square ratio */
+  width: 100%;
   height: 230px;
-object-fit: cover;
-  display: block;
-  margin: 0 auto 15px auto;
-border-radius: 12px;
-  border: 3px solid #ffb6c1; /* muted blush border */
-  cursor: zoom-in;
+  object-fit: cover;
+  border-radius: 12px;
   border: 3px solid var(--pink-400);
   margin-bottom: 14px;
   cursor: pointer;
 }
 
-/* Titles */
-main h1 {
-  font-family: 'Amoria', serif;
 /* Title */
 main h1{
   font-family: "Amoria", serif;
-font-size: 1.4rem;
-  margin: 10px 0;
-  color: #e75480;   /* raspberry pink */
-  font-weight: 600;
+  font-size: 1.4rem;
   color: var(--pink-700);
   font-weight: 400;
   margin-bottom: 8px;
 }
 
-/* Paragraphs */
-main p {
-  font-family: 'AppleGaramond-Light', serif;
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 15px;
 /* Paragraph */
 main p{
   font-family: "AppleGaramondLight", serif;
-  font-size: 0.85rem;
+  font-size: 0.85rem;    /* smaller than before */
   line-height: 1.5;
-  color: var(--ink);
+  color: #444;
   margin: 0 auto;
   max-width: 85%;
 }
 
-/* Lightbox */
 /* Footer */
 footer{
   background: var(--pink-400);
@@ -223,26 +124,19 @@ footer{
 
 /* Lightbox overlay */
 .lightbox {
-  display: none;
-position: fixed;
-  z-index: 999;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  align-items: center;
+  position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(43,43,43,0.9); /* ink with opacity */
+  background: rgba(0,0,0,0.9);
   display: flex;
-justify-content: center;
+  justify-content: center;
   align-items: center;
   z-index: 1000;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 .lightbox.active {
-  display: flex;
   visibility: visible;
   opacity: 1;
 }
@@ -250,77 +144,41 @@ justify-content: center;
 /* Fullscreen media */
 .lightbox img,
 .lightbox video {
-max-width: 90%;
-max-height: 85%;
-border-radius: 10px;
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
   box-shadow: 0 0 20px rgba(255,255,255,0.3);
-  box-shadow: 0 0 20px rgba(231,188,200,0.3); /* pink-400 with opacity */
 }
 
-/* Lightbox controls */
 /* Close button */
 .lightbox-close {
-position: absolute;
-top: 20px;
-right: 30px;
-font-size: 2rem;
-  color: white;
-  color: var(--bg);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
   cursor: pointer;
   font-family: sans-serif;
-background: none;
-border: none;
-  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 /* Navigation arrows */
 .lightbox-nav {
-position: absolute;
-top: 50%;
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
-font-size: 2.5rem;
-  color: white;
-  color: var(--bg);
+  font-size: 2.5rem;
+  color: #fff;
   cursor: pointer;
-background: none;
-border: none;
-  cursor: pointer;
-  transform: translateY(-50%);
+  background: none;
+  border: none;
   user-select: none;
 }
-
 .lightbox-nav.prev { left: 20px; }
 .lightbox-nav.next { right: 20px; }
 
-/* Footer */
-footer {
-  background: #ffb6c1;   /* blush pink */
-  color: #2e2e2e;
-  padding: 18px;
-  margin-top: 50px;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
 /* Responsive */
-@media (max-width: 768px) {
-  .about-container {
-    grid-template-columns: 1fr; /* stack image and text */
-    text-align: center;
-  }
-
-  .about-text h2,
-  .about-text p {
-    text-align: center;
-  }
-
-  .about-image img {
-    height: 300px; /* reduce portrait height on mobile */
-  }
-
-  main {
-    grid-template-columns: 1fr; /* 1 card per row */
-  }
 @media (max-width: 760px){
   main{ grid-template-columns: 1fr; gap: 28px; }
   header h1{ font-size: 2.1rem; }
