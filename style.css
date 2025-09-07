@@ -59,7 +59,7 @@ header h1 {
 
 .about-image img {
   width: 100%;
-  height: 320px;       /* match card media */
+  height: 440px;       /* match card media */
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
