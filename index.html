@@ -12,12 +12,41 @@
   <header>
     <h1>Sonia Robles</h1>
   </header>
-  </div>
-</section>
 
   <main>
+    <!-- About Me (full-width) -->
+    <section class="about card" id="about">
+      <img
+        src="Sonia.jpg"
+        alt="Sonia standing on a sunny beach"
+        class="portrait"
+        loading="lazy"
+      />
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I am a student at the University of California, Santa Barbara, pursuing a major in
+          Communication with minors in Applied Psychology and Media Arts &amp; Design. My academic
+          journey connects creative expression with human understanding, giving me a unique
+          perspective on how media, design, and storytelling shape experience.
+        </p>
+        <p>
+          With skills in web narratives, digital fusion, Laser Cutting and design tools such as
+          Adobe Creative Suite, Canva, and Microsoft applications (certified), I enjoy exploring both
+          traditional and emerging technologies. This portfolio reflects my passion for experimenting
+          across mediums; blending art, communication, and design to create projects that are both
+          visually engaging and conceptually meaningful.
+        </p>
+        <p>
+          Here, you’ll find a selection of my work that highlights this intersection of creativity
+          and innovation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gallery cards -->
     <section>
-      <img src="Collage.png" class="lightbox-trigger" />
+      <img src="Collage.png" class="lightbox-trigger" alt="Jeff Koons Inspired Collage"/>
       <h1>Jeff Koons Inspired Collage</h1>
       <p>
         This piece is heavily inspired by Jeff Koons’ influence in its bold layering of everyday symbols, turning the ordinary into a spectacle of wonder and artificial beauty. Bright lips, wild animals, flowers, and architectural fragments blended in an imagined landscape that is both playful and uncanny.
@@ -25,7 +54,7 @@
     </section>
 
     <section>
-      <img src="Collage Postcard.jpeg" class="lightbox-trigger" />
+      <img src="Collage Postcard.jpeg" class="lightbox-trigger" alt="Postcard Collage"/>
       <h1>Postcard Collage</h1>
       <p>
         This piece reimagines a real-world destination through a whimsical, layered lens. It transforms a familiar place into a dreamscape blending colors, experiences, and aesthetics to evoke nostalgia and the promise of future travel.
@@ -33,7 +62,7 @@
     </section>
 
     <section>
-      <img src="Collage UCSB.jpeg" class="lightbox-trigger" />
+      <img src="Collage UCSB.jpeg" class="lightbox-trigger" alt="UCSB Collage"/>
       <h1>UCSB Collage</h1>
       <p>
         The piece is a vibrant, modern collage celebrating the unique spirit of UCSB pictured as a university by the waves. Layering coastal imagery with symbols of student life, campus landmarks, team pride, and bursts of color. It’s a tribute to school spirit, academic culture, and the feeling of possibility an acceptance letter represents.
@@ -41,7 +70,7 @@
     </section>
 
     <section>
-      <img src="Collage Fresas.jpeg" class="lightbox-trigger" />
+      <img src="Collage Fresas.jpeg" class="lightbox-trigger" alt="Fresas Collage"/>
       <h1>Fresas Collage</h1>
       <p>
         This piece reflects girlhood as an era shaped by beauty products, trends, and shared rituals. By layering makeup packaging and familiar brands, it captures the collective passage through experimentation, belonging, and the aesthetics that define a stage of growing up. The strawberries reference the Mexican slang ‘fresa,’ which translates to strawberry and is used to describe a girly girl.
@@ -50,7 +79,7 @@
 
     <section>
       <video autoplay loop muted class="lightbox-trigger">
-        <source src="LRV.mp4" type="video/mp4">
+        <source src="LRV.mp4" type="video/mp4" />
       </video>
       <h1>Layered Realities</h1>
       <p>
@@ -59,7 +88,7 @@
     </section>
 
     <section>
-      <img src="Laser Cut Hands.png" class="lightbox-trigger" />
+      <img src="Laser Cut Hands.png" class="lightbox-trigger" alt="Laser Cut Hands"/>
       <h1>Laser Cut Hands</h1>
       <p>
         I designed and laser cut the hands as a modern take on woodworking, a craft practiced for centuries through direct, hands-on making. The piece highlights how traditional art forms can evolve through digital fabrication and technologies while preserving its essence.
@@ -67,7 +96,7 @@
     </section>
 
     <section>
-      <img src="Cards Box.png" class="lightbox-trigger" />
+      <img src="Cards Box.png" class="lightbox-trigger" alt="Playing Cards Wooden Box"/>
       <h1>Playing Cards Wooden Box</h1>
       <p>
         This card box was sketched out, modeled in Fusion, and laser cut using press-fit locks for assembly. The hand-designed sun symbol on the lid functions as a viewing window, letting the user glimpse the card inside while also serving as a unique decorative element. Balancing practicality and design, the box securely stores a deck while highlighting the creative process from concept to finished piece.
@@ -81,7 +110,7 @@
     <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous (Left Arrow)">&#10094;</button>
     <button class="lightbox-nav next" id="lightboxNext" aria-label="Next (Right Arrow)">&#10095;</button>
     <img id="lightboxImg" alt="" style="display:none;">
-    <video id="lightboxVideo" controls style="display:none;"></video>
+    <video id="lightboxVideo" controls style="display:none"></video>
   </div>
 
   <footer>
@@ -175,9 +204,7 @@
         el.addEventListener("pointerup", () => {
           const now = Date.now();
           const last = lastTapByEl.get(el) || 0;
-          if (now - last < DOUBLE_TAP_MS) {
-            open(idx);
-          }
+          if (now - last < DOUBLE_TAP_MS) open(idx);
           lastTapByEl.set(el, now);
         });
       });
