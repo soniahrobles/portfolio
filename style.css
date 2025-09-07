@@ -202,7 +202,8 @@ footer{
 
 .about-image img {
   width: 100%;
-  max-width: 350px;
+  height: 220px;          /* same height as your cards */
+  object-fit: cover;      /* crops to fit nicely */
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
