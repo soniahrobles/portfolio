@@ -189,8 +189,8 @@ footer{
 
 /* 1) Sonia image exactly 440px wide (keeps aspect ratio) */
 img[src$="sonia.jpg"]{
-  width: 440px !important;
-  height: auto !important;
+  width: 440px;
+  height: auto;
   max-width: 100%;
   display: block;
   margin-inline: auto;
@@ -198,7 +198,7 @@ img[src$="sonia.jpg"]{
 
 /* 2) About section fonts to match site */
 #about h1, #about h2, #about h3{
-  font-family: "Amoria", serif;
+font-family: "Amoria", serif;
   letter-spacing: .3px;
   font-weight: 400;
 }
