@@ -82,11 +82,11 @@ main section:hover{
   box-shadow: 0 12px 22px rgba(184,106,130,.22);
 }
 
-/* File (image/video) */
+/* File (image/video) — TALLER/BIGGER */
 main img,
 main video{
   width: 100%;
-  height: 230px;
+  height: 340px;             /* ↑ from 230px */
   object-fit: cover;
   border-radius: 12px;
   border: 3px solid var(--pink-400);
@@ -182,4 +182,34 @@ footer{
 @media (max-width: 760px){
   main{ grid-template-columns: 1fr; gap: 28px; }
   header h1{ font-size: 2.1rem; }
+  main img, main video { height: 250px; } /* keep mobile compact */
+}
+
+/* --------- OVERRIDES & ADD-ONS (place AFTER the rules above) --------- */
+
+/* 1) Sonia image exactly 440px wide (keeps aspect ratio) */
+img[src$="sonia.jpg"]{
+  width: 440px !important;
+  height: auto !important;
+  max-width: 100%;
+  display: block;
+  margin-inline: auto;
+}
+
+/* 2) About section fonts to match site */
+#about h1, #about h2, #about h3{
+  font-family: "Amoria", serif;
+  letter-spacing: .3px;
+  font-weight: 400;
+}
+#about p, #about li{
+  font-family: "AppleGaramondLight", serif;
+  line-height: 1.6;
+  font-size: 1rem;  /* readable body size */
+  color: #444;
+}
+
+/* 3) Make files a touch larger on big screens while keeping layout stable */
+@media (min-width: 1200px){
+  main img, main video{ height: 380px; }
 }
