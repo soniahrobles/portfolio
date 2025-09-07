@@ -20,7 +20,7 @@
 body {
   font-family: 'AppleGaramond-Light', serif;
   line-height: 1.7;
-  background-color: #fff8f7;
+  background-color: #fff8f7; /* soft neutral pink */
   color: #2e2e2e;
   text-align: center;
   padding: 20px;
@@ -28,7 +28,7 @@ body {
 
 /* Header */
 header {
-  background: #b86a82;  /* raspberry pink */
+  background: #ff6f91;  /* strawberry pink */
   color: white;
   padding: 25px 0;
   margin-bottom: 40px;
@@ -43,7 +43,7 @@ header h1 {
 
 /* About Section */
 .about {
-  background-color: #fff8f7; /* soft neutral pink */
+  background-color: #fff; /* clean block for separation */
   padding: 60px 20px;
   display: flex;
   justify-content: center;
@@ -52,14 +52,14 @@ header h1 {
 .about-container {
   max-width: 1100px;
   display: grid;
-  grid-template-columns: 1fr 2fr; /* image left, text right */
+  grid-template-columns: 1fr 2fr; /* portrait left, text right */
   gap: 40px;
   align-items: center;
 }
 
 .about-image img {
   width: 100%;
-  height: 440px;       /* match card media */
+  height: 440px;       /* double the card media height */
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
@@ -67,8 +67,8 @@ header h1 {
 
 .about-text h2 {
   font-family: 'Amoria', serif;   /* same as card titles */
-  font-size: 1.8rem;
-  color: #b86a82; /* raspberry pink */
+  font-size: 2rem;
+  color: #e75480; /* raspberry pink */
   margin-bottom: 15px;
   text-align: left;
 }
@@ -113,8 +113,8 @@ main video {
   display: block;
   margin: 0 auto 15px auto;
   border-radius: 12px;
-  border: 3px solid #ffb6c1; /* blush pink border */
-  cursor: zoom-in; /* hint at interaction */
+  border: 3px solid #ffb6c1; /* muted blush border */
+  cursor: zoom-in;
 }
 
 /* Titles */
@@ -203,6 +203,10 @@ footer {
   .about-text h2,
   .about-text p {
     text-align: center;
+  }
+
+  .about-image img {
+    height: 300px; /* reduce portrait height on mobile */
   }
 
   main {
