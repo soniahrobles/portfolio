@@ -54,7 +54,6 @@
       <ul class="contact-list" role="list">
         <li>
           <a class="contact-btn" href="mailto:sonia@example.com" aria-label="Email Sonia">
-            <!-- envelope icon -->
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.1-.5 7.4 5.3L19 6H4.1Zm15.4 2.1-7.1 5.1a1.5 1.5 0 0 1-1.7 0L3.6 8.1V17.5c0 .55.45 1 1 1h14.9c.55 0 1-.45 1-1V8.1Z" fill="currentColor"/>
             </svg>
@@ -64,7 +63,6 @@
 
         <li>
           <a class="contact-btn" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-            <!-- LinkedIn icon -->
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5Zm-.5 6.5H7v10H4.48V10ZM9.5 10h2.39v1.37h.03c.33-.62 1.14-1.27 2.35-1.27 2.51 0 2.98 1.65 2.98 3.79V20H14.7v-4.6c0-1.1-.02-2.51-1.53-2.51-1.53 0-1.77 1.19-1.77 2.43V20H9.5V10Z" fill="currentColor"/>
             </svg>
@@ -74,7 +72,6 @@
 
         <li>
           <a class="contact-btn" href="https://instagram.com/your-handle" target="_blank" rel="noopener" aria-label="Instagram profile">
-            <!-- Instagram icon -->
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.7A4.3 4.3 0 1 1 7.7 12 4.31 4.31 0 0 1 12 7.7Zm0 2A2.3 2.3 0 1 0 14.3 12 2.31 2.31 0 0 0 12 9.7ZM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z" fill="currentColor"/>
             </svg>
@@ -84,7 +81,6 @@
 
         <li>
           <a class="contact-btn" href="https://github.com/your-handle" target="_blank" rel="noopener" aria-label="GitHub profile">
-            <!-- GitHub icon -->
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.2-3.37-1.2a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.54 1.04 2.14 2.14 0 0 0 2.92.83 2.14 2.14 0 0 1 .63-1.35c-2.22-.25-4.56-1.11-4.56-4.95A3.87 3.87 0 0 1 6.1 7.4a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.03a9.37 9.37 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.37.84.41 1.78.1 2.64a3.87 3.87 0 0 1 1.03 2.68c0 3.85-2.34 4.7-4.57 4.95a2.4 2.4 0 0 1 .68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor"/>
             </svg>
@@ -215,16 +211,18 @@
     <p>©2025 Sonia Robles</p>
   </footer>
 
-  <!-- PDF.js (CDN) -->
-  <script src="https://unpkg.com/pdfjs-dist@4.8.69/build/pdf.min.js"></script>
+  <!-- PDF.js (LEGACY build for GH Pages compatibility) -->
+  <script src="https://unpkg.com/pdfjs-dist@4.8.69/legacy/build/pdf.min.js"></script>
   <script>
-    // Configure worker (same version as script)
+    // Worker must match the legacy build path/version:
     pdfjsLib.GlobalWorkerOptions.workerSrc =
-      "https://unpkg.com/pdfjs-dist@4.8.69/build/pdf.worker.min.js";
+      "https://unpkg.com/pdfjs-dist@4.8.69/legacy/build/pdf.worker.min.js";
 
     // Inline PDF viewer for the LV deck
     (function(){
-      const url = "Louis%20Vuitton,%20Case%20project.pdf"; // URL-encoded filename
+      // Use the plain filename; PDF.js handles spaces/commas fine on same-origin.
+      const url = "Louis Vuitton, Case project.pdf";
+
       const canvas = document.getElementById("lv-canvas");
       const skel = document.getElementById("lv-skel");
       const viewer = document.getElementById("lv-viewer");
@@ -250,7 +248,8 @@
       function getFitScale(page) {
         const viewport = page.getViewport({ scale: 1 });
         const pad = 24; // padding inside .pdf-card
-        const avail = viewer.querySelector(".pdf-stage").clientWidth - pad;
+        const stage = viewer.querySelector(".pdf-stage");
+        const avail = Math.max(200, stage.clientWidth - pad);
         return Math.max(0.1, avail / viewport.width);
       }
 
@@ -338,25 +337,28 @@
         rAF = requestAnimationFrame(() => renderPage(pageNum));
       });
 
-      // Load the PDF
-      pdfjsLib.getDocument(url).promise.then((doc)=>{
-        pdfDoc = doc;
-        totalPages = doc.numPages;
-        updatePageLabel();
-        renderPage(pageNum);
-      }).catch(err=>{
-        console.error("PDF load failed:", err);
-        // Fallback: simple iframe inside the card
-        viewer.innerHTML = `
-          <div class="pdf-embed" style="margin:0">
-            <iframe src="${url}#toolbar=1&navpanes=0" title="PDF viewer" allowfullscreen></iframe>
-          </div>
-        `;
-      });
+      // Load the PDF (disable stream/range to avoid partial-content quirks on some hosts)
+      pdfjsLib.getDocument({ url, disableStream: true, disableRange: true }).promise
+        .then((doc)=>{
+          pdfDoc = doc;
+          totalPages = doc.numPages;
+          updatePageLabel();
+          renderPage(pageNum);
+        })
+        .catch(err=>{
+          console.error("PDF load failed:", err);
+          // Fallback: simple iframe inside the card
+          const safe = encodeURI(url);
+          viewer.innerHTML = `
+            <div class="pdf-embed" style="margin:0">
+              <iframe src="${safe}#toolbar=1&navpanes=0" title="PDF viewer" allowfullscreen></iframe>
+            </div>
+          `;
+        });
     })();
   </script>
 
-  <!-- Lightbox JS -->
+  <!-- Lightbox JS (unchanged) -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const lightbox = document.getElementById("lightbox");
