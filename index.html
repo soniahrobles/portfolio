@@ -78,23 +78,12 @@
             <span>Instagram</span>
           </a>
         </li>
-
       </ul>
     </section>
 
-    <!-- Louis Vuitton Case Project (inline PDF slides viewer) -->
+    <!-- Louis Vuitton Case Project (inline PDF slides viewer, NO BUTTONS) -->
     <section>
       <div class="pdf-card" id="lv-viewer" aria-label="Louis Vuitton Case Project slides">
-        <div class="pdf-toolbar" role="toolbar" aria-label="PDF controls">
-          <button class="pdf-btn" id="lv-prev" title="Previous slide" aria-label="Previous slide">&#10094;</button>
-          <span class="pdf-page" id="lv-page" aria-live="polite">1 / ?</span>
-          <button class="pdf-btn" id="lv-next" title="Next slide" aria-label="Next slide">&#10095;</button>
-          <span class="spacer"></span>
-          <button class="pdf-btn" id="lv-zoom-out" title="Zoom out" aria-label="Zoom out">−</button>
-          <button class="pdf-btn" id="lv-zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
-          <button class="pdf-btn" id="lv-fit" title="Fit to width" aria-label="Fit to width">Fit</button>
-          <button class="pdf-btn" id="lv-fullscreen" title="Fullscreen" aria-label="Fullscreen">⤢</button>
-        </div>
         <div class="pdf-stage">
           <canvas id="lv-canvas" class="pdf-canvas" aria-label="Slide canvas"></canvas>
           <div class="pdf-skeleton" id="lv-skel"></div>
@@ -104,7 +93,7 @@
       <h1>Louis Vuitton Case Project</h1>
       <p>
         Strategic case study on balancing heritage, sustainability, and next-gen luxury.
-        View and flip through the slides here, or
+        View slides here, or
         <a href="projects/louis-vuitton.html">open the full project page</a>.
       </p>
     </section>
@@ -210,37 +199,26 @@
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://unpkg.com/pdfjs-dist@4.8.69/legacy/build/pdf.worker.min.js";
 
-    // Inline PDF viewer for the LV deck
+    // Inline PDF viewer for the LV deck (no visible controls)
     (function(){
-      // Use the plain filename; PDF.js handles spaces/commas fine on same-origin.
-      const url = "Louis Vuitton, Case project.pdf";
+      const url = "Louis Vuitton, Case project.pdf"; // same-folder PDF
 
       const canvas = document.getElementById("lv-canvas");
       const skel = document.getElementById("lv-skel");
       const viewer = document.getElementById("lv-viewer");
 
-      const pageEl = document.getElementById("lv-page");
-      const prevBtn = document.getElementById("lv-prev");
-      const nextBtn = document.getElementById("lv-next");
-      const zoomIn = document.getElementById("lv-zoom-in");
-      const zoomOut = document.getElementById("lv-zoom-out");
-      const fitBtn  = document.getElementById("lv-fit");
-      const fsBtn   = document.getElementById("lv-fullscreen");
-
       let pdfDoc = null;
       let pageNum = 1;
       let totalPages = 1;
-      let scale = 1.0;         // current zoom
-      let fitToWidth = true;   // keep fitting on resize
+      let fitToWidth = true;
+      let scale = 1.0;
       let rendering = false;
       let pending = null;
 
-      function updatePageLabel(){ pageEl.textContent = pageNum + " / " + totalPages; }
-
       function getFitScale(page) {
         const viewport = page.getViewport({ scale: 1 });
-        const pad = 24; // padding inside .pdf-card
         const stage = viewer.querySelector(".pdf-stage");
+        const pad = 24;
         const avail = Math.max(200, stage.clientWidth - pad);
         return Math.max(0.1, avail / viewport.width);
       }
@@ -261,12 +239,11 @@
         canvas.style.height = Math.floor(viewport.height) + "px";
 
         const ctx = canvas.getContext("2d");
-        const renderContext = {
+        await page.render({
           canvasContext: ctx,
           transform: [dpr, 0, 0, dpr, 0, 0],
           viewport
-        };
-        await page.render(renderContext).promise;
+        }).promise;
 
         skel.style.display = "none";
         rendering = false;
@@ -276,52 +253,29 @@
       function queueRender(num){
         if (num < 1 || num > totalPages) return;
         pageNum = num;
-        updatePageLabel();
         renderPage(pageNum);
       }
 
-      function next(){ queueRender(pageNum + 1); }
-      function prev(){ queueRender(pageNum - 1); }
+      // Keyboard navigation only (no buttons): ← / →
+      viewer.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") queueRender(pageNum + 1);
+        if (e.key === "ArrowLeft")  queueRender(pageNum - 1);
+        if (e.key.toLowerCase() === "f") toggleFullscreen();
+      });
+      viewer.tabIndex = 0; // focusable
 
-      function zoom(delta){
-        fitToWidth = false;
-        scale = Math.max(0.25, Math.min(4, scale + delta));
-        renderPage(pageNum);
-      }
-
-      function fit(){
-        fitToWidth = true;
-        renderPage(pageNum);
-      }
-
-      function fullscreen(){
+      // Double-click toggles fullscreen
+      viewer.addEventListener("dblclick", toggleFullscreen);
+      function toggleFullscreen(){
         const el = viewer;
         if (!document.fullscreenElement){
-          if (el.requestFullscreen) el.requestFullscreen();
+          el.requestFullscreen?.();
         } else {
-          if (document.exitFullscreen) document.exitFullscreen();
+          document.exitFullscreen?.();
         }
       }
 
-      // Controls
-      nextBtn.addEventListener("click", next);
-      prevBtn.addEventListener("click", prev);
-      zoomIn.addEventListener("click", () => zoom(+0.15));
-      zoomOut.addEventListener("click", () => zoom(-0.15));
-      fitBtn.addEventListener("click", fit);
-      fsBtn.addEventListener("click", fullscreen);
-
-      // Keyboard: arrows and +/- when focused in viewer area
-      viewer.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") next();
-        if (e.key === "ArrowLeft")  prev();
-        if (e.key === "+") zoom(+0.15);
-        if (e.key === "-") zoom(-0.15);
-        if (e.key.toLowerCase() === "f") fullscreen();
-      });
-      viewer.tabIndex = 0; // make focusable for keys
-
-      // Resize handling (debounced)
+      // Re-render on resize when fitted
       let rAF = null;
       window.addEventListener("resize", () => {
         if (!fitToWidth) return;
@@ -329,17 +283,15 @@
         rAF = requestAnimationFrame(() => renderPage(pageNum));
       });
 
-      // Load the PDF (disable stream/range to avoid partial-content quirks on some hosts)
+      // Load the PDF (disable stream/range for GH Pages quirks)
       pdfjsLib.getDocument({ url, disableStream: true, disableRange: true }).promise
         .then((doc)=>{
           pdfDoc = doc;
           totalPages = doc.numPages;
-          updatePageLabel();
           renderPage(pageNum);
         })
         .catch(err=>{
           console.error("PDF load failed:", err);
-          // Fallback: simple iframe inside the card
           const safe = encodeURI(url);
           viewer.innerHTML = `
             <div class="pdf-embed" style="margin:0">
