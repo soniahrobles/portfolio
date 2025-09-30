@@ -144,6 +144,22 @@ main p{
   max-width: 85%;
 }
 
+/* Optional button (used for download if enabled) */
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  border:2px solid var(--pink-400);
+  text-decoration:none;
+  color: var(--ink);
+  background:#fff;
+  transition:.2s ease;
+}
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(184,106,130,.22);
+}
+
 /* Footer */
 footer{
   background: var(--pink-400);
@@ -208,6 +224,30 @@ footer{
 }
 .lightbox-nav.prev { left: 20px; }
 .lightbox-nav.next { right: 20px; }
+
+/* Responsive PDF embed (matches your card style) */
+.pdf-embed{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* modern browsers */
+  border-radius: 12px;
+  border: 3px solid var(--pink-400);
+  box-shadow: 0 8px 16px rgba(200,130,152,.18);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.pdf-embed iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Fallback if you need older-browser support for aspect ratio:
+.pdf-embed { position:relative; width:100%; padding-top:56.25%; }
+.pdf-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+*/
 
 /* Responsive */
 @media (max-width: 760px){
