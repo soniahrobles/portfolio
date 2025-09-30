@@ -144,11 +144,11 @@ main p{
   max-width: 85%;
 }
 
-/* PDF embed (homepage card) */
+/* PDF embed (fallback) */
 .pdf-embed{
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;   /* modern browsers */
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   border: 3px solid var(--pink-400);
   box-shadow: 0 8px 16px rgba(200,130,152,.18);
@@ -161,6 +161,48 @@ main p{
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* --- PDF preview grid (homepage) --- */
+.pdf-preview{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  border-radius: 12px;
+  border: 3px solid var(--pink-400);
+  box-shadow: 0 8px 16px rgba(200,130,152,.18);
+  background:#fff;
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.pdf-thumb{
+  width:100%;
+  height:auto;
+  border-radius: 8px;
+  display:block;
+  background:#fafafa;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+/* Skeleton while loading */
+.skeleton{
+  background: linear-gradient(90deg, #f3e6ea 25%, #fff 37%, #f3e6ea 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 8px;
+  height: 180px; /* temporary until canvases load */
+}
+@keyframes shimmer{
+  0%{background-position: 100% 0}
+  100%{background-position: 0 0}
+}
+
+@media (max-width: 900px){
+  .pdf-preview{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .pdf-preview{ grid-template-columns: 1fr; }
 }
 
 /* Footer */
