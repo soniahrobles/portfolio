@@ -113,6 +113,53 @@ main section:hover,
   color: #444;
 }
 
+/* Contact section */
+.contact{
+  grid-column: 1 / -1;       /* full-width card like About */
+  align-items: center;
+  gap: 10px;
+}
+.contact h2{
+  font-family: "Amoria", serif;
+  color: var(--pink-700);
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+.contact-desc{
+  font-family: "AppleGaramondLight", serif;
+  max-width: 720px;
+  color: #444;
+  font-size: 0.98rem;
+}
+
+/* Buttons list */
+.contact-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.contact-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid var(--pink-400);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(200,130,152,.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.contact-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(184,106,130,.18);
+}
+.contact-btn svg{ display:block }
+
 /* File (image/video) */
 main img,
 main video{
@@ -125,7 +172,7 @@ main video{
   cursor: pointer;
 }
 
-/* Title */
+/* Title under cards */
 main h1{
   font-family: "Amoria", serif;
   font-size: 1.4rem;
@@ -134,7 +181,7 @@ main h1{
   margin-bottom: 8px;
 }
 
-/* Paragraph */
+/* Paragraph under cards */
 main p{
   font-family: "AppleGaramondLight", serif;
   font-size: 0.85rem;
