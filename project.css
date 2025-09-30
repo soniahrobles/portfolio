@@ -1,4 +1,11 @@
 /* --- Project page styles (detail pages) --- */
+@font-face {
+  font-family: "Amoria";
+  src: url("AMORIA.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
 :root{
@@ -28,9 +35,14 @@ body{
 }
 .header a:hover{opacity:1}
 
+/* Title now uses Amoria */
 .title{
   max-width:900px;margin:0 auto 6px auto;
-  font-size:2.2rem;color:var(--pink-700);font-weight:500;
+  font-family:"Amoria", serif;
+  font-size:2.2rem;
+  color:var(--pink-700);
+  font-weight:400;          /* Amoria is loaded at normal weight */
+  letter-spacing:.3px;
 }
 .rule{max-width:900px;margin:10px auto 18px auto;border:0;border-top:2px solid var(--pink-200)}
 
