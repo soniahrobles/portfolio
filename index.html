@@ -44,24 +44,20 @@
       </div>
     </section>
 
-    <!-- Louis Vuitton Case Project (PDF) -->
+    <!-- Louis Vuitton Case Project (PDF preview grid) -->
     <section>
       <a href="projects/louis-vuitton.html" aria-label="Open Louis Vuitton Case Project">
-        <div class="pdf-embed">
-          <!-- URL-encoded spaces/commas for reliability -->
-          <iframe
-            src="Louis%20Vuitton,%20Case%20project.pdf#toolbar=1&navpanes=0"
-            allow="fullscreen"
-            allowfullscreen
-            loading="lazy"
-            title="Louis Vuitton Case Project PDF"
-          ></iframe>
+        <div class="pdf-preview" id="lv-preview" aria-hidden="true">
+          <!-- Thumbnails render here via PDF.js -->
+          <div class="pdf-thumb skeleton"></div>
+          <div class="pdf-thumb skeleton"></div>
+          <div class="pdf-thumb skeleton"></div>
         </div>
       </a>
       <h1>Louis Vuitton Case Project</h1>
       <p>
         Strategic case study on balancing heritage, sustainability, and next-gen luxury.
-        Click to view fullscreen on its project page.
+        Click the preview to open the full slides (with fullscreen) on the project page.
       </p>
     </section>
 
@@ -103,7 +99,7 @@
       </p>
     </section>
 
-    <!-- Collage Projects (moved to end) -->
+    <!-- Collage Projects (at end) -->
     <section>
       <a href="projects/collage-koons.html" aria-label="Open Jeff Koons Inspired Collage">
         <img src="Collage.png" class="lightbox-trigger" alt="Jeff Koons Inspired Collage"/>
@@ -160,6 +156,69 @@
   <footer>
     <p>©2025 Sonia Robles</p>
   </footer>
+
+  <!-- PDF.js (CDN) -->
+  <script src="https://unpkg.com/pdfjs-dist@4.8.69/build/pdf.min.js"></script>
+  <script>
+    // Configure worker (must match the version above)
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://unpkg.com/pdfjs-dist@4.8.69/build/pdf.worker.min.js";
+
+    // Path to your PDF (URL-encoded for spaces/commas)
+    const LV_PDF_URL = "Louis%20Vuitton,%20Case%20project.pdf";
+
+    // Render first N pages into canvases
+    async function renderPdfPreview(containerId, pdfUrl, pageCount = 3) {
+      try {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+        const total = Math.min(pageCount, pdf.numPages);
+
+        // Clear skeletons
+        container.innerHTML = "";
+
+        for (let i = 1; i <= total; i++) {
+          const page = await pdf.getPage(i);
+          // Scale for crisp thumbnails (devicePixelRatio-aware)
+          const viewport = page.getViewport({ scale: 0.6 });
+          const canvas = document.createElement("canvas");
+          canvas.className = "pdf-thumb";
+          const context = canvas.getContext("2d");
+
+          const dpr = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(viewport.width * dpr);
+          canvas.height = Math.floor(viewport.height * dpr);
+          canvas.style.width = Math.floor(viewport.width) + "px";
+          canvas.style.height = Math.floor(viewport.height) + "px";
+
+          const renderContext = {
+            canvasContext: context,
+            transform: [dpr, 0, 0, dpr, 0, 0],
+            viewport
+          };
+          await page.render(renderContext).promise;
+          container.appendChild(canvas);
+        }
+
+        // Mark container as visible for a11y once ready
+        container.setAttribute("aria-hidden", "false");
+      } catch (err) {
+        console.error("PDF preview failed:", err);
+        const container = document.getElementById(containerId);
+        if (container) {
+          container.innerHTML = `
+            <div class="pdf-embed">
+              <iframe src="${pdfUrl}#toolbar=0&navpanes=0" title="PDF preview"></iframe>
+            </div>`;
+        }
+      }
+    }
+
+    // Kick off preview
+    renderPdfPreview("lv-preview", LV_PDF_URL, 3);
+  </script>
 
   <!-- Lightbox JS -->
   <script>
