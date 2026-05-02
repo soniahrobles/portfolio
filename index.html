@@ -3,140 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonia Robles Portfolio</title>
+  <title>Sonia Robles</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">Sonia Robles</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#marketing">Marketing Plans</a></li>
-    <li><a href="#media">Media</a></li>
-    <li><a href="#education-section">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO / HOME -->
-<section id="home" class="hero">
-
-  <!-- LEFT IMAGE -->
-  <div class="hero-left">
-    <img src="headshot.jpg" alt="Sonia Robles headshot">
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a href="#home" class="logo">Sonia Robles</a>
   </div>
 
-  <!-- RIGHT TEXT -->
-  <div class="hero-right">
-    <h1>Sonia Robles Portfolio</h1>
+  <div class="nav-right">
+    <a href="#experience">Experience</a>
+    <a href="#marketing">Marketing</a>
+    <a href="#media">Media</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-    <p class="typing">
+<!-- HERO -->
+<section id="home" class="hero">
+
+  <div class="hero-left">
+    <img src="headshot.jpg" alt="Sonia">
+  </div>
+
+  <div class="hero-right">
+    <h1>Sonia Robles</h1>
+
+    <p class="subtitle">
       Communication student focused on Public Relations, Human Resources, and Marketing Strategy.
     </p>
 
-    <h2>About Me</h2>
     <p>
-      Welcome! My name is Sonia Robles. I am a Communication student with a focus on Public Relations and Human Resources, with a strong interest in marketing and campaign strategy.
+      I am a Communication student with a focus on Public Relations and Human Resources, with a strong interest in marketing and campaign strategy. I have gained hands-on experience supporting campaigns through tabling, event promotion, and audience engagement.
     </p>
 
     <p>
-      I have gained hands-on experience supporting campus-based campaigns through tabling, event promotion, and direct audience engagement.
-    </p>
-
-    <p>
-      I have worked on integrated marketing communication plans for real clients such as Rusty’s Pizza Parlor, contributing to strategy development, audience analysis, and campaign planning.
-    </p>
-
-    <p>
-      With a background in Media Arts & Technology, I combine creative tools like digital production, 3D printing, and design with strategic marketing thinking.
+      I’ve contributed to integrated marketing campaigns for real clients like Rusty’s Pizza Parlor, focusing on strategy, audience insights, and execution.
     </p>
 
     <!-- TOGGLES -->
     <div class="toggles">
-
-      <button onclick="toggleSection('edu')">Education</button>
-      <div id="edu" class="toggle-content">
-        <p><strong>Major:</strong> Communication</p>
-        <p><strong>Minors:</strong> Media Arts & Design, Applied Psychology</p>
+      <button onclick="toggle('edu')">Education</button>
+      <div id="edu" class="hidden">
+        Communication major<br>
+        Minors: Media Arts & Design, Applied Psychology
       </div>
 
-      <button onclick="toggleSection('skills')">Skills & Certifications</button>
-      <div id="skills" class="toggle-content">
-        <p><strong>Technical:</strong> Adobe Creative Cloud, Canva, HTML, GitHub, Fusion 360</p>
-        <p><strong>Soft Skills:</strong> Organization, Collaboration, Communication</p>
-        <p><strong>Languages:</strong> English & Spanish (Fluent)</p>
+      <button onclick="toggle('skills')">Skills</button>
+      <div id="skills" class="hidden">
+        Adobe, Canva, HTML, Fusion 360<br>
+        Fluent in English & Spanish
       </div>
+    </div>
 
+  </div>
+
+</section>
+
+<!-- PROJECT SECTION -->
+<section class="projects">
+
+  <div class="project">
+    <img src="LRV.png">
+    <div class="project-text">
+      <h2>Layered Realities</h2>
+      <p>Interactive installation exploring technology, humanity, and nature.</p>
+    </div>
+  </div>
+
+  <div class="project reverse">
+    <img src="Laser Cut Hands.png">
+    <div class="project-text">
+      <h2>Laser Cut Hands</h2>
+      <p>Digital fabrication reinterpretation of classical art.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <img src="Cards Box.png">
+    <div class="project-text">
+      <h2>Card Box</h2>
+      <p>Fusion 360 modeled laser-cut storage piece.</p>
     </div>
   </div>
 
 </section>
 
-<!-- PROJECT GALLERY -->
-<section class="gallery">
-  <h2>Projects</h2>
-
-  <div class="gallery-grid">
-
-    <div class="card">
-      <img src="LRV.png">
-      <h3>Layered Realities</h3>
-    </div>
-
-    <div class="card">
-      <img src="Laser Cut Hands.png">
-      <h3>Laser Cut Hands</h3>
-    </div>
-
-    <div class="card">
-      <img src="Cards Box.png">
-      <h3>Card Box</h3>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
+<!-- SIMPLE SECTIONS -->
 <section id="experience" class="section">
   <h2>Experience</h2>
-  <p>Universal Pictures Ambassador, Aurum Marketing Club, Yerba Madre Brand Ambassador.</p>
+  <p>Universal Pictures, Aurum Marketing Club, Yerba Madre</p>
 </section>
 
-<!-- MARKETING -->
 <section id="marketing" class="section">
   <h2>Marketing Plans</h2>
-  <p>Rusty’s IMC Plan, Women in Business Campaign.</p>
+  <p>Rusty’s IMC Plan, Women in Business Campaign</p>
 </section>
 
-<!-- MEDIA -->
 <section id="media" class="section">
   <h2>Media</h2>
-  <p>Creative projects including installations, fabrication, and coding work.</p>
+  <p>Installations, fabrication, and creative coding work</p>
 </section>
 
-<!-- EDUCATION -->
-<section id="education-section" class="section">
+<section id="education" class="section">
   <h2>Education</h2>
-  <p>Communication major with minors in Media Arts & Design and Applied Psychology.</p>
+  <p>Communication major with interdisciplinary minors</p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>Email: soniarobles@ucsb.edu</p>
+  <p>soniarobles@ucsb.edu</p>
 </section>
 
 <script>
-function toggleSection(id) {
+function toggle(id){
   const el = document.getElementById(id);
-  el.style.display = el.style.display === "block" ? "none" : "block";
+  el.classList.toggle("show");
 }
 </script>
 
 </body>
 </html>
-
