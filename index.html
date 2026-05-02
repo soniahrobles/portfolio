@@ -1,397 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonia Robles</title>
-  <meta name="description" content="Introducing Sonia Robles" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonia Robles Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>Sonia Robles</h1>
-  </header>
 
-  <main>
-    <!-- About Me (full-width) -->
-    <section class="about card" id="about">
-      <img
-        src="Sonia.jpg"
-        alt="Sonia standing on a sunny beach"
-        class="portrait"
-        loading="lazy"
-      />
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>
-          I am a student at the University of California, Santa Barbara, pursuing a major in
-          Communication with minors in Applied Psychology and Media Arts &amp; Design. My academic
-          journey connects creative expression with human understanding, giving me a unique
-          perspective on how media, design, and storytelling shape experience.
-        </p>
-        <p>
-          With skills in Web Narratives, Digital Fusion, Laser Cutting and design tools such as
-          Adobe Creative Suite, Canva, and Microsoft applications (certified), I enjoy exploring both
-          traditional and emerging technologies. This portfolio reflects my passion for experimenting
-          across mediums; blending art, communication, and design to create projects that are both
-          visually engaging and conceptually meaningful.
-        </p>
-        <p>
-          Here, you’ll find a selection of my work that highlights this intersection of creativity
-          and innovation.
-        </p>
-      </div>
-    </section>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">Sonia Robles</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#marketing">Marketing Plans</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#education-section">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- Contact (full-width, below About) -->
-    <section class="contact card" id="contact">
-      <h2>Contact</h2>
-      <p class="contact-desc">
-        I’d love to connect about creative projects, internships, or collaborations.
-      </p>
+<!-- HERO / HOME -->
+<section id="home" class="hero">
 
-      <ul class="contact-list" role="list">
-        <li>
-          <a class="contact-btn" href="mailto:soniarobles@ucsb.edu" aria-label="Email Sonia">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.1-.5 7.4 5.3L19 6H4.1Zm15.4 2.1-7.1 5.1a1.5 1.5 0 0 1-1.7 0L3.6 8.1V17.5c0 .55.45 1 1 1h14.9c.55 0 1-.45 1-1V8.1Z" fill="currentColor"/>
-            </svg>
-            <span>Email</span>
-          </a>
-        </li>
-
-        <li>
-          <a class="contact-btn" href="https://www.linkedin.com/in/sonia-robles-826393304/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5Zm-.5 6.5H7v10H4.48V10ZM9.5 10h2.39v1.37h.03c.33-.62 1.14-1.27 2.35-1.27 2.51 0 2.98 1.65 2.98 3.79V20H14.7v-4.6c0-1.1-.02-2.51-1.53-2.51-1.53 0-1.77 1.19-1.77 2.43V20H9.5V10Z" fill="currentColor"/>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-        </li>
-
-        <li>
-          <a class="contact-btn" href="https://www.instagram.com/soniahrs/" target="_blank" rel="noopener" aria-label="Instagram profile">
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.7A4.3 4.3 0 1 1 7.7 12 4.31 4.31 0 0 1 12 7.7Zm0 2A2.3 2.3 0 1 0 14.3 12 2.31 2.31 0 0 0 12 9.7ZM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z" fill="currentColor"/>
-            </svg>
-            <span>Instagram</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Louis Vuitton Case Project (inline PDF slides viewer, NO BUTTONS) -->
-    <section>
-      <div class="pdf-card" id="lv-viewer" aria-label="Louis Vuitton Case Project slides">
-        <div class="pdf-stage">
-          <canvas id="lv-canvas" class="pdf-canvas" aria-label="Slide canvas"></canvas>
-          <div class="pdf-skeleton" id="lv-skel"></div>
-        </div>
-      </div>
-
-      <h1>Louis Vuitton Case Project</h1>
-      <p>
-        Strategic case study on balancing heritage, sustainability, and next-gen luxury.
-        View slides here, or
-        <a href="projects/louis-vuitton.html">open the full project page</a>.
-      </p>
-    </section>
-
-    <!-- Other Projects -->
-    <section>
-      <a href="projects/layered-realities.html" aria-label="Open Layered Realities project">
-        <video autoplay loop muted class="lightbox-trigger">
-          <source src="LRV.mp4" type="video/mp4" />
-        </video>
-      </a>
-      <h1>Layered Realities</h1>
-      <p>
-        A light-reactive, three-layered painting where RGB illumination reveals different narratives
-        with 3D-printed flora and laser-cut mechanics.
-      </p>
-    </section>
-
-    <section>
-      <a href="projects/laser-cut-hands.html" aria-label="Open Laser Cut Hands project">
-        <img src="Laser Cut Hands.png" class="lightbox-trigger" alt="Laser Cut Hands"/>
-      </a>
-      <h1>Laser Cut Hands</h1>
-      <p>
-        A contemporary take on woodworking through digital fabrication; designed and laser-cut hands
-        balancing tradition and technology.
-      </p>
-    </section>
-
-    <section>
-      <a href="projects/cards-box.html" aria-label="Open Playing Cards Wooden Box project">
-        <img src="Cards Box.png" class="lightbox-trigger" alt="Playing Cards Wooden Box"/>
-      </a>
-      <h1>Playing Cards Wooden Box</h1>
-      <p>
-        Fusion-modeled, laser-cut box using press-fit locks with a custom sun window that reveals the
-        deck and adds a distinct design detail.
-      </p>
-    </section>
-
-    <!-- Collage Projects (kept at end) -->
-    <section>
-      <a href="projects/collage-koons.html" aria-label="Open Jeff Koons Inspired Collage">
-        <img src="Collage.png" class="lightbox-trigger" alt="Jeff Koons Inspired Collage"/>
-      </a>
-      <h1>Jeff Koons Inspired Collage</h1>
-      <p>
-        Bold layering of everyday symbols—lips, animals, florals, and architecture—turning the
-        ordinary into spectacle.
-      </p>
-    </section>
-
-    <section>
-      <a href="projects/collage-postcard.html" aria-label="Open Postcard Collage">
-        <img src="Collage Postcard.jpeg" class="lightbox-trigger" alt="Postcard Collage"/>
-      </a>
-      <h1>Postcard Collage</h1>
-      <p>
-        A familiar destination reimagined as a dreamscape blending color, memory, and the pull of
-        future travel.
-      </p>
-    </section>
-
-    <section>
-      <a href="projects/collage-ucsb.html" aria-label="Open UCSB Collage">
-        <img src="Collage UCSB.jpeg" class="lightbox-trigger" alt="UCSB Collage"/>
-      </a>
-      <h1>UCSB Collage</h1>
-      <p>
-        A vibrant tribute to UCSB’s coastal spirit—student life, landmarks, and bright color bursts.
-      </p>
-    </section>
-
-    <section>
-      <a href="projects/collage-fresas.html" aria-label="Open Fresas Collage">
-        <img src="Collage Fresas.jpeg" class="lightbox-trigger" alt="Fresas Collage"/>
-      </a>
-      <h1>Fresas Collage</h1>
-      <p>
-        Girlhood through brands, trends, and shared rituals. Strawberries nod to the Mexican slang
-        “fresa,” describing a girly-girl.
-      </p>
-    </section>
-  </main>
-
-  <!-- Lightbox modal -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close (Esc)">&times;</button>
-    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous (Left Arrow)">&#10094;</button>
-    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next (Right Arrow)">&#10095;</button>
-    <img id="lightboxImg" alt="" style="display:none;">
-    <video id="lightboxVideo" controls style="display:none"></video>
+  <!-- LEFT IMAGE -->
+  <div class="hero-left">
+    <img src="headshot.jpg" alt="Sonia Robles headshot">
   </div>
 
-  <footer>
-    <p>©2025 Sonia Robles</p>
-  </footer>
+  <!-- RIGHT TEXT -->
+  <div class="hero-right">
+    <h1>Sonia Robles Portfolio</h1>
 
-  <!-- PDF.js (LEGACY build for GH Pages compatibility) -->
-  <script src="https://unpkg.com/pdfjs-dist@4.8.69/legacy/build/pdf.min.js"></script>
-  <script>
-    // Worker must match the legacy build path/version:
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      "https://unpkg.com/pdfjs-dist@4.8.69/legacy/build/pdf.worker.min.js";
+    <p class="typing">
+      Communication student focused on Public Relations, Human Resources, and Marketing Strategy.
+    </p>
 
-    // Inline PDF viewer for the LV deck (no visible controls)
-    (function(){
-      const url = "Louis Vuitton, Case project.pdf"; // same-folder PDF
+    <h2>About Me</h2>
+    <p>
+      Welcome! My name is Sonia Robles. I am a Communication student with a focus on Public Relations and Human Resources, with a strong interest in marketing and campaign strategy.
+    </p>
 
-      const canvas = document.getElementById("lv-canvas");
-      const skel = document.getElementById("lv-skel");
-      const viewer = document.getElementById("lv-viewer");
+    <p>
+      I have gained hands-on experience supporting campus-based campaigns through tabling, event promotion, and direct audience engagement.
+    </p>
 
-      let pdfDoc = null;
-      let pageNum = 1;
-      let totalPages = 1;
-      let fitToWidth = true;
-      let scale = 1.0;
-      let rendering = false;
-      let pending = null;
+    <p>
+      I have worked on integrated marketing communication plans for real clients such as Rusty’s Pizza Parlor, contributing to strategy development, audience analysis, and campaign planning.
+    </p>
 
-      function getFitScale(page) {
-        const viewport = page.getViewport({ scale: 1 });
-        const stage = viewer.querySelector(".pdf-stage");
-        const pad = 24;
-        const avail = Math.max(200, stage.clientWidth - pad);
-        return Math.max(0.1, avail / viewport.width);
-      }
+    <p>
+      With a background in Media Arts & Technology, I combine creative tools like digital production, 3D printing, and design with strategic marketing thinking.
+    </p>
 
-      async function renderPage(num){
-        if (rendering) { pending = num; return; }
-        rendering = true;
-        skel.style.display = "block";
+    <!-- TOGGLES -->
+    <div class="toggles">
 
-        const page = await pdfDoc.getPage(num);
-        const baseScale = fitToWidth ? getFitScale(page) : scale;
-        const viewport = page.getViewport({ scale: baseScale });
+      <button onclick="toggleSection('edu')">Education</button>
+      <div id="edu" class="toggle-content">
+        <p><strong>Major:</strong> Communication</p>
+        <p><strong>Minors:</strong> Media Arts & Design, Applied Psychology</p>
+      </div>
 
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width  = Math.floor(viewport.width * dpr);
-        canvas.height = Math.floor(viewport.height * dpr);
-        canvas.style.width  = Math.floor(viewport.width) + "px";
-        canvas.style.height = Math.floor(viewport.height) + "px";
+      <button onclick="toggleSection('skills')">Skills & Certifications</button>
+      <div id="skills" class="toggle-content">
+        <p><strong>Technical:</strong> Adobe Creative Cloud, Canva, HTML, GitHub, Fusion 360</p>
+        <p><strong>Soft Skills:</strong> Organization, Collaboration, Communication</p>
+        <p><strong>Languages:</strong> English & Spanish (Fluent)</p>
+      </div>
 
-        const ctx = canvas.getContext("2d");
-        await page.render({
-          canvasContext: ctx,
-          transform: [dpr, 0, 0, dpr, 0, 0],
-          viewport
-        }).promise;
+    </div>
+  </div>
 
-        skel.style.display = "none";
-        rendering = false;
-        if (pending !== null){ const n = pending; pending = null; renderPage(n); }
-      }
+</section>
 
-      function queueRender(num){
-        if (num < 1 || num > totalPages) return;
-        pageNum = num;
-        renderPage(pageNum);
-      }
+<!-- PROJECT GALLERY -->
+<section class="gallery">
+  <h2>Projects</h2>
 
-      // Keyboard navigation only (no buttons): ← / →
-      viewer.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") queueRender(pageNum + 1);
-        if (e.key === "ArrowLeft")  queueRender(pageNum - 1);
-        if (e.key.toLowerCase() === "f") toggleFullscreen();
-      });
-      viewer.tabIndex = 0; // focusable
+  <div class="gallery-grid">
 
-      // Double-click toggles fullscreen
-      viewer.addEventListener("dblclick", toggleFullscreen);
-      function toggleFullscreen(){
-        const el = viewer;
-        if (!document.fullscreenElement){
-          el.requestFullscreen?.();
-        } else {
-          document.exitFullscreen?.();
-        }
-      }
+    <div class="card">
+      <img src="LRV.png">
+      <h3>Layered Realities</h3>
+    </div>
 
-      // Re-render on resize when fitted
-      let rAF = null;
-      window.addEventListener("resize", () => {
-        if (!fitToWidth) return;
-        if (rAF) cancelAnimationFrame(rAF);
-        rAF = requestAnimationFrame(() => renderPage(pageNum));
-      });
+    <div class="card">
+      <img src="Laser Cut Hands.png">
+      <h3>Laser Cut Hands</h3>
+    </div>
 
-      // Load the PDF (disable stream/range for GH Pages quirks)
-      pdfjsLib.getDocument({ url, disableStream: true, disableRange: true }).promise
-        .then((doc)=>{
-          pdfDoc = doc;
-          totalPages = doc.numPages;
-          renderPage(pageNum);
-        })
-        .catch(err=>{
-          console.error("PDF load failed:", err);
-          const safe = encodeURI(url);
-          viewer.innerHTML = `
-            <div class="pdf-embed" style="margin:0">
-              <iframe src="${safe}#toolbar=1&navpanes=0" title="PDF viewer" allowfullscreen></iframe>
-            </div>
-          `;
-        });
-    })();
-  </script>
+    <div class="card">
+      <img src="Cards Box.png">
+      <h3>Card Box</h3>
+    </div>
 
-  <!-- Lightbox JS (unchanged) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const lightbox = document.getElementById("lightbox");
-      const lbImg = document.getElementById("lightboxImg");
-      const lbVideo = document.getElementById("lightboxVideo");
-      const btnClose = document.getElementById("lightboxClose");
-      const btnPrev = document.getElementById("lightboxPrev");
-      const btnNext = document.getElementById("lightboxNext");
+  </div>
+</section>
 
-      const triggers = Array.from(
-        document.querySelectorAll("img.lightbox-trigger, video.lightbox-trigger")
-      );
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <h2>Experience</h2>
+  <p>Universal Pictures Ambassador, Aurum Marketing Club, Yerba Madre Brand Ambassador.</p>
+</section>
 
-      const items = triggers.map((el) => {
-        if (el.tagName === "IMG") {
-          return { type: "img", src: el.currentSrc || el.src };
-        }
-        const source = el.querySelector("source");
-        return { type: "video", src: source?.src || el.currentSrc || el.src };
-      });
+<!-- MARKETING -->
+<section id="marketing" class="section">
+  <h2>Marketing Plans</h2>
+  <p>Rusty’s IMC Plan, Women in Business Campaign.</p>
+</section>
 
-      triggers.forEach((el) => el.setAttribute("tabindex", "0"));
-      let current = 0;
+<!-- MEDIA -->
+<section id="media" class="section">
+  <h2>Media</h2>
+  <p>Creative projects including installations, fabrication, and coding work.</p>
+</section>
 
-      function render(index) {
-        const item = items[index];
-        if (!item) return;
-        if (item.type === "img") {
-          lbVideo.pause();
-          lbVideo.removeAttribute("src");
-          lbVideo.style.display = "none";
-          lbImg.src = item.src;
-          lbImg.style.display = "block";
-        } else {
-          lbImg.removeAttribute("src");
-          lbImg.style.display = "none";
-          lbVideo.src = item.src;
-          lbVideo.style.display = "block";
-          lbVideo.load();
-        }
-      }
+<!-- EDUCATION -->
+<section id="education-section" class="section">
+  <h2>Education</h2>
+  <p>Communication major with minors in Media Arts & Design and Applied Psychology.</p>
+</section>
 
-      function open(index) {
-        current = index;
-        render(current);
-        lightbox.classList.add("active");
-        lightbox.setAttribute("aria-hidden", "false");
-      }
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: soniarobles@ucsb.edu</p>
+</section>
 
-      function close() {
-        lightbox.classList.remove("active");
-        lightbox.setAttribute("aria-hidden", "true");
-        lbImg.removeAttribute("src");
-        lbVideo.pause();
-        lbVideo.removeAttribute("src");
-      }
+<script>
+function toggleSection(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+</script>
 
-      function next(delta = 1) {
-        current = (current + delta + items.length) % items.length;
-        render(current);
-      }
-
-      const DOUBLE_TAP_MS = 300;
-      const lastTapByEl = new WeakMap();
-
-      triggers.forEach((el, idx) => {
-        el.addEventListener("dblclick", () => open(idx));
-        el.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(idx); }
-        });
-        el.addEventListener("pointerup", () => {
-          const now = Date.now();
-          const last = lastTapByEl.get(el) || 0;
-          if (now - last < DOUBLE_TAP_MS) open(idx);
-          lastTapByEl.set(el, now);
-        });
-      });
-
-      btnClose?.addEventListener("click", close);
-      lightbox.addEventListener("click", (e) => { if (e.target === lightbox) close(); });
-      btnPrev?.addEventListener("click", () => next(-1));
-      btnNext?.addEventListener("click", () => next(1));
-      document.addEventListener("keydown", (e) => {
-        if (!lightbox.classList.contains("active")) return;
-        if (e.key === "Escape") close();
-        if (e.key === "ArrowRight") next(1);
-        if (e.key === "ArrowLeft") next(-1);
-      });
-    });
-  </script>
 </body>
 </html>
+
