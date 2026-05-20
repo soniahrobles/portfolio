@@ -116,7 +116,7 @@ body::before {
 
 .nav-links {
   display: flex;
-  gap: 15px;
+  gap: 30px;
 }
 
 .nav-links a {
@@ -162,14 +162,14 @@ body::before {
 
 .text-section h1 {
   font-family: "Amoria";
-  font-size: 64px;
+  font-size: 48px;
   margin-bottom: 25px;
   color: #000000;
 }
 
 .text-section h2 {
   font-family: "Amoria";
-  margin-top: 20px;
+  margin-top: 16px;
   margin-bottom: 10px;
   font-size: 34px;
   color: #000000;
@@ -177,7 +177,7 @@ body::before {
 
 .text-section p {
   line-height: 2.1;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 15px;
   color: #000000;
 }
