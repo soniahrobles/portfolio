@@ -137,19 +137,19 @@ body::before {
    HOME LAYOUT
 ========================= */
 .main-container {
-  min-height: 90vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* keeps everything locked to the top */
   justify-content: center;
   gap: 70px;
   padding: 80px;
 }
 
 .profile-img {
-  width: 420px;
+  width: 380px;
   border-radius: 18px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  align-self: flex-start; /* prevents shifting when toggles expand */
 }
 
 .text-section {
