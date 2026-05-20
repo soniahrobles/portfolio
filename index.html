@@ -1,14 +1,23 @@
+<!-- =========================
+     INDEX.HTML
+========================= -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonia Robles Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="navbar">
-<div>
+<!-- NAVIGATION -->
+<nav class="navbar">
+
+<div class="nav-left">
 <div class="nav-title">Sonia Robles</div>
 <a href="index.html" class="nav-home">Home</a>
 </div>
@@ -20,50 +29,138 @@
 <a href="education.html">Education</a>
 <a href="contact.html">Contact Info</a>
 </div>
-</div>
 
-<div class="main-container fade-in">
+</nav>
 
-<img src="headshot.jpg" class="profile-img">
+<!-- MAIN SECTION -->
+<section class="main-container">
+
+<img src="headshot.jpg"
+class="profile-img fade-in">
 
 <div class="text-section">
 
-<h1>Sonia Robles Portfolio</h1>
-<p>Communication student focused on marketing and campaign strategy.</p>
+<h1 class="fade-in">About Me</h1>
 
-<h2>About Me</h2>
-<p>
-Welcome! My name is Sonia Robles. I am a Communication student focused on Public Relations and Human Resources with strong experience in marketing campaigns, audience engagement, and creative media.
+<p class="fade-delay">
+Welcome! My name is Sonia Robles
+<br><br>
+
+I am a Communication student with a focus on Public Relations and Human Resources, with a strong interest in marketing and campaign strategy. I have gained hands-on experience supporting campus-based campaigns through tabling, event promotion, and direct audience engagement. These experiences have helped me develop strong communication skills and an understanding of how to connect with different target audiences.
+<br><br>
+
+In addition, I have worked on marketing projects such as integrated marketing communication plans, where I’ve contributed to strategy development, audience analysis, and campaign planning for real clients, such as an established chain restaurant in the Santa Barbara Area, Rusty’s Pizza Parlor. These projects have strengthened my ability to think critically about messaging and execution.
+<br><br>
+
+I also have a background in Media Arts & Technology, where I’ve explored creative tools such as digital production, web narratives, 3D printing, laser cutting, and more. This has allowed me to approach marketing from both a strategic and creative perspective.
+<br><br>
+
+I am interested in pursuing opportunities in marketing and public relations where I can continue building experience in campaign development, audience engagement, and collaborative work environments.
 </p>
 
-<div class="toggle" onclick="toggleSection('edu')">Education</div>
-<div id="edu" class="toggle-content">
-Communication Major<br>
-Minors: Media Arts & Design, Applied Psychology
+<!-- TOGGLES -->
+
+<div class="toggle fade-delay-2"
+onclick="toggleSection('education')">
+Education
 </div>
 
-<div class="toggle" onclick="toggleSection('skills')">Skills</div>
-<div id="skills" class="toggle-content">
-Microsoft Suite, Adobe, HTML, Canva<br>
-Organization, Communication, Planning
+<div id="education"
+class="toggle-content">
+
+<p>
+My academic journey connects creative expression with human understanding, giving me a unique perspective on how media, design, and storytelling shape experience.
+</p>
+
+<br>
+
+<strong>Major:</strong><br>
+Communication
+
+<br><br>
+
+<strong>Minors:</strong><br>
+Media Arts & Design<br>
+Applied Psychology
+
+</div>
+
+<div class="toggle fade-delay-2"
+onclick="toggleSection('skills')">
+Skills & Certifications
+</div>
+
+<div id="skills"
+class="toggle-content">
+
+<p>
+Technical Skills: Certified in Microsoft Suite (Word, PowerPoint, Excel, Outlook), Laser Cut, 3D Model, Adobe Creative Cloud, Fusion, HTML, Github, Visual Code, Google Suite (Docs, Slides, Sheets), Canva, Procreate, Notion
+</p>
+
+<br>
+
+<p>
+Soft Skills: Organization, Planning, Event Coordinating, Collaboration, Detail-Oriented, Problem Solving, Communication, Digital Design
+</p>
+
+<br>
+
+<p>
+Languages: English (Fluent), Spanish (Fluent)
+</p>
+
 </div>
 
 </div>
+</section>
+
+<!-- PROJECT GALLERY -->
+
+<section class="gallery">
+
+<h2 class="fade-in">Featured Projects</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-card fade-delay">
+<img src="Laser Cut Hands.png">
+<h3>Layered Realities</h3>
+<a href="media.html">Learn More</a>
 </div>
 
-<div class="gallery">
-<a href="layered-detail.html"><img src="Laser Cut Hands.png"></a>
-<a href="rustys-detail.html"><img src="Cards Box.png"></a>
-<a href="media.html"><img src="Collage.png"></a>
+<div class="gallery-card fade-delay">
+<img src="Cards Box.png">
+<h3>Laser Cut Card Box</h3>
+<a href="media.html">Learn More</a>
 </div>
+
+<div class="gallery-card fade-delay">
+<img src="EH Tabling.jpg">
+<h3>Universal Pictures</h3>
+<a href="experience.html">Learn More</a>
+</div>
+
+</div>
+
+</section>
 
 <script>
+
 function toggleSection(id){
-let el=document.getElementById(id);
-el.style.display=el.style.display==="block"?"none":"block";
+
+const section=document.getElementById(id);
+
+if(section.style.display==="block"){
+section.style.display="none";
 }
+
+else{
+section.style.display="block";
+}
+
+}
+
 </script>
 
 </body>
 </html>
-
