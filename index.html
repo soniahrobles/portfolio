@@ -1,78 +1,48 @@
-<!-- =========================
-     INDEX.HTML
-========================= -->
+<div class="text-section fade-in">
 
-<!DOCTYPE html>
-<html lang="en">
+<h1 style="color:#000000;">About Me</h1>
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonia Robles Portfolio</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<p style="color:#000000; line-height:2;">
 
-<body>
-
-<!-- NAVIGATION -->
-<nav class="navbar">
-
-<div class="nav-left">
-<div class="nav-title">Sonia Robles</div>
-<a href="index.html" class="nav-home">Home</a>
-</div>
-
-<div class="nav-links">
-<a href="experience.html">Experience</a>
-<a href="marketing.html">Marketing Plans</a>
-<a href="media.html">Media</a>
-<a href="education.html">Education</a>
-<a href="contact.html">Contact Info</a>
-</div>
-
-</nav>
-
-<!-- MAIN SECTION -->
-<section class="main-container">
-
-<img src="headshot.jpg"
-class="profile-img fade-in">
-
-<div class="text-section">
-
-<h1 class="fade-in">About Me</h1>
-
-<p class="fade-delay">
 Welcome! My name is Sonia Robles
+
 <br><br>
 
 I am a Communication student with a focus on Public Relations and Human Resources, with a strong interest in marketing and campaign strategy. I have gained hands-on experience supporting campus-based campaigns through tabling, event promotion, and direct audience engagement. These experiences have helped me develop strong communication skills and an understanding of how to connect with different target audiences.
+
 <br><br>
 
 In addition, I have worked on marketing projects such as integrated marketing communication plans, where I’ve contributed to strategy development, audience analysis, and campaign planning for real clients, such as an established chain restaurant in the Santa Barbara Area, Rusty’s Pizza Parlor. These projects have strengthened my ability to think critically about messaging and execution.
+
 <br><br>
 
 I also have a background in Media Arts & Technology, where I’ve explored creative tools such as digital production, web narratives, 3D printing, laser cutting, and more. This has allowed me to approach marketing from both a strategic and creative perspective.
+
 <br><br>
 
 I am interested in pursuing opportunities in marketing and public relations where I can continue building experience in campaign development, audience engagement, and collaborative work environments.
+
 </p>
 
-<!-- TOGGLES -->
+<!-- EDUCATION TOGGLE -->
 
-<div class="toggle fade-delay-2"
-onclick="toggleSection('education')">
+<div class="toggle"
+onclick="toggleSection('education')"
+style="color:#000000; border-color:#b86a81;">
+
 Education
+
 </div>
 
 <div id="education"
-class="toggle-content">
+class="toggle-content"
+style="color:#000000;">
 
-<p>
+<p style="color:#000000; line-height:2;">
+
 My academic journey connects creative expression with human understanding, giving me a unique perspective on how media, design, and storytelling shape experience.
-</p>
 
-<br>
+<br><br>
 
 <strong>Major:</strong><br>
 Communication
@@ -83,55 +53,41 @@ Communication
 Media Arts & Design<br>
 Applied Psychology
 
+</p>
+
 </div>
 
-<div class="toggle fade-delay-2"
-onclick="toggleSection('skills')">
+<!-- SKILLS TOGGLE -->
+
+<div class="toggle"
+onclick="toggleSection('skills')"
+style="color:#000000; border-color:#b86a81;">
+
 Skills & Certifications
+
 </div>
 
 <div id="skills"
-class="toggle-content">
+class="toggle-content"
+style="color:#000000;">
 
-<p>
-Technical Skills: Certified in Microsoft Suite (Word, PowerPoint, Excel, Outlook), Laser Cut, 3D Model, Adobe Creative Cloud, Fusion, HTML, Github, Visual Code, Google Suite (Docs, Slides, Sheets), Canva, Procreate, Notion
-</p>
+<p style="color:#000000; line-height:2;">
 
-<br>
+<strong>Technical Skills:</strong>
+Certified in Microsoft Suite (Word, PowerPoint, Excel, Outlook), Laser Cut, 3D Model, Adobe Creative Cloud, Fusion, HTML, Github, Visual Code, Google Suite (Docs, Slides, Sheets), Canva, Procreate, Notion
 
-<p>
-Soft Skills: Organization, Planning, Event Coordinating, Collaboration, Detail-Oriented, Problem Solving, Communication, Digital Design
-</p>
+<br><br>
 
-<br>
+<strong>Soft Skills:</strong>
+Organization, Planning, Event Coordinating, Collaboration, Detail-Oriented, Problem Solving, Communication, Digital Design
 
-<p>
-Languages: English (Fluent), Spanish (Fluent)
+<br><br>
+
+<strong>Languages:</strong>
+English (Fluent), Spanish (Fluent)
+
 </p>
 
 </div>
 
 </div>
-
-</section>
-
-<script>
-
-function toggleSection(id){
-
-const section=document.getElementById(id);
-
-if(section.style.display==="block"){
-section.style.display="none";
-}
-
-else{
-section.style.display="block";
-}
-
-}
-
-</script>
-
-</body>
-</html>
