@@ -269,7 +269,7 @@ body::before {
 /* IMAGES */
 .project-media img {
   width: 180px;
-  height: 120px; /* reduced height */
+  height: 240px; /* reduced height */
   border-radius: 14px;
   object-fit: cover;
   display: block;
@@ -279,7 +279,7 @@ body::before {
 /* VIDEOS */
 .project-media video {
   width: 180px;
-  height: 120px; /* reduced height */
+  height: 240px; /* reduced height */
   border-radius: 14px;
   object-fit: cover;
   display: block;
