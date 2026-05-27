@@ -1,3 +1,4 @@
+```css
 /* =========================
    FONTS
 ========================= */
@@ -116,6 +117,7 @@ body::before {
 .nav-links {
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -139,10 +141,12 @@ body::before {
   justify-content: center;
   gap: 70px;
   padding: 80px;
+  flex-wrap: wrap;
 }
 
 .profile-img {
   width: 380px;
+  max-width: 100%;
   border-radius: 18px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -185,6 +189,7 @@ body::before {
   cursor: pointer;
   font-size: 20px;
   background: rgba(255,255,255,0.7);
+  transition: 0.3s ease;
 }
 
 .toggle:hover {
@@ -219,16 +224,23 @@ body::before {
    PROJECT CARD
 ========================= */
 .project-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 60px;
   margin-bottom: 100px;
-  align-items: start;
+  flex-wrap: wrap;
+}
+
+.project-info {
+  flex: 1.2;
+  min-width: 300px;
 }
 
 .project-info h2 {
   font-family: "Amoria";
   font-size: 42px;
+  margin-bottom: 10px;
 }
 
 .project-info h3 {
@@ -240,81 +252,40 @@ body::before {
 .project-info p {
   font-size: 19px;
   line-height: 2;
+  margin-bottom: 14px;
 }
 
 /* =========================
-   CAROUSEL (NEW)
+   PROJECT MEDIA
 ========================= */
 
 .project-media {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-/* slides */
-.carousel-track {
   display: flex;
-  transition: transform 0.5s ease;
-  width: 100%;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  flex: 0.8;
 }
 
-.carousel-item {
-  min-width: 100%;
+/* Smaller Images */
+.project-media img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.carousel-item img,
-.carousel-item video {
+/* Smaller Videos */
+.project-media video {
   width: 100%;
+  max-width: 320px;
+  height: auto;
   border-radius: 18px;
   display: block;
-}
-
-/* arrows */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(184,106,129,0.8);
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 20px;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background: #b86a81;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* dots */
-.carousel-dots {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.carousel-dot {
-  height: 10px;
-  width: 10px;
-  margin: 5px;
-  display: inline-block;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-}
-
-.carousel-dot.active {
-  background: #b86a81;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 /* =========================
@@ -327,6 +298,7 @@ body::before {
   padding: 12px 20px;
   color: #b86a81;
   text-decoration: none;
+  transition: 0.3s ease;
 }
 
 .learn-btn:hover {
@@ -338,15 +310,88 @@ body::before {
    RESPONSIVE
 ========================= */
 @media (max-width: 1100px) {
+
   .main-container,
   .project-card {
-    grid-template-columns: 1fr;
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
   .navbar {
     flex-direction: column;
     gap: 15px;
+    padding: 20px;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .page-container {
+    padding: 40px 25px;
+  }
+
+  .page-title {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .project-info h2 {
+    font-size: 34px;
+  }
+
+  .project-info h3 {
+    font-size: 20px;
+  }
+
+  .project-info p {
+    font-size: 17px;
+  }
+
+  .text-section h1 {
+    font-size: 40px;
+  }
+
+  .text-section h2 {
+    font-size: 30px;
+  }
+
+  .profile-img {
+    width: 300px;
   }
 }
+
+@media (max-width: 700px) {
+
+  .page-title {
+    font-size: 40px;
+  }
+
+  .text-section {
+    padding: 25px;
+  }
+
+  .text-section h1 {
+    font-size: 34px;
+  }
+
+  .text-section h2 {
+    font-size: 26px;
+  }
+
+  .project-media img,
+  .project-media video {
+    max-width: 100%;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+```
